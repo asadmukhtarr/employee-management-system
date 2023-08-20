@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/','pagesController@dashboard')->name('dashboard');
+// for employees ..
+Route::prefix('employee')->group(function(){
+    Route::get('/create','pagesController@new_employee')->name('employee.create');
+    Route::get('/all','pagesController@all_employee')->name('all.employee');
+});
+// Accounts
+Route::prefix('accounts')->group(function(){
+    Route::get('/','pagesController@accounts')->name('employee.account');
+});
+// settings ..
+Route::prefix('users')->namespace('settings')->group(function(){
+    Route::get('/settings','settingsController@index')->name('profile.settings');
 });
