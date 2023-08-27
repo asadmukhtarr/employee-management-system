@@ -4,7 +4,7 @@
   @include('alert')
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Create New Employee</h3>
+      <h3 class="card-title">Edit Employee</h3>
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
           <i class="fas fa-minus"></i>
@@ -15,39 +15,39 @@
       </div>
     </div>
     <div class="card-body">
-      <form action="{{ route('employee.save') }}" method="post">
+      <form action="{{ route('employee.update',$employee->id) }}" method="post">
         @csrf
         <div class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" value="{{ old('name') }}" name="name" />
+          <input type="text" class="form-control" value="{{ $employee->name }}" name="name" />
           @error('name')
           <font color="red"><b>{{ $message }}</b></font>
           @enderror
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="text" class="form-control" value="{{ old('email') }}" name="email" />
+          <input type="text" class="form-control" value="{{ $employee->email }}" name="email" />
           @error('email')
           <font color="red"><b>{{ $message }}</b></font>
           @enderror
         </div>
         <div class="form-group">
           <label>What's App</label>
-          <input type="text" class="form-control" value="{{ old('wp') }}" name="wp" />
+          <input type="text" class="form-control" value="{{ $employee->whatsapp }}" name="wp" />
           @error('wp')
           <font color="red"><b>{{ $message }}</b></font>
           @enderror
         </div>
         <div class="form-group">
           <label>ID Card</label>
-          <input type="text" class="form-control" value="{{ old('id') }}" name="id" />
+          <input type="text" class="form-control" value="{{ $employee->idcard }}" name="id" />
           @error('id')
           <font color="red"><b>{{ $message }}</b></font>
           @enderror
         </div>
         <div class="form-group">
           <label>Salary</label>
-          <input type="text" class="form-control" value="{{ old('salary') }}" name="salary" />
+          <input type="text" class="form-control" value="{{ $employee->salary }}" name="salary" />
           @error('salary')
           <font color="red"><b>{{ $message }}</b></font>
           @enderror

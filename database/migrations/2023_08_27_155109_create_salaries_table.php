@@ -11,21 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('salaries', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('idcard')->nullable();
-            $table->integer('salary')->nullable();
-            $table->integer('whatsapp')->nullable();
+            $table->integer('employee_id');
+            $table->string('salary_month');
+            $table->string('salary_date');
+            $table->integer('salary');
+            $table->integer('status');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('salaries');
     }
 };
